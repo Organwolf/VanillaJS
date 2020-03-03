@@ -7,19 +7,22 @@
 </head>
 <body>
 <div class="sidenav">
-    <a href="">About</a>
+    <a href="about.html">About</a>
     <a href="">Poetic Computation</a>
     <a href="">Inspiration</a>
     <a href="">Colors</a>
 </div>
-<img src="http://unsplash.it/400/400" class="img"/>
+<div class="container">
+    <img src="http://unsplash.it/400/400" class="image"/>
+
+</div>
 <script>
     console.log('HOMEPAGE');
 </script>
 <style>
     .sidenav {
         background: #eee;
-        width: 130px;
+        width: 200px;
         position: fixed;
         z-index: 1;
         left: 10px;
@@ -31,13 +34,28 @@
     .sidenav a {
         text-decoration: none;
         display: block;
-        font-size: 20px;
-        /* padding: 6px 8px 6px 16px; */
+        font-size: 16px;
+        padding: 6px 8px 6px 16px;
     }
 
-    img {
+    .container {
+        position: relative;
+        width: 50%;
+    }
+
+    .image {
+        opacity: 1;
         display: block;
+        /* width: 100%; */
+        height: auto;
+        transition: .5s ease;
+        backface-visibility: hidden;
         margin-left: 140px;
+        -webkit-filter: grayscale(100%);
+    }
+
+    .container:hover .image {
+        opacity: 0.3;
     }
 
 </style>
