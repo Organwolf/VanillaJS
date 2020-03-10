@@ -8,17 +8,19 @@
 
   <div class="words" contenteditable>
   </div>
-
+  
+<script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
 <script>
   window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
-  const recognition = new SpeachRecognition();
+  var recognition = new SpeechRecognition();
   recognition.interimResult = true;
 
   let p = document.createElement('p');
   const words = document.querySelector('.words');
-  words.appednChild(p);
+  words.appendChild(p);
 
+    cornify_add();
   // npm install
   // npm start
   // opens upp a little server 
@@ -27,6 +29,7 @@
     // Shows speachrec events
     // console.log(e);
     // e.results -> list of results -> list showing confidence, if the person is done speaking and confidence
+
     const transcript = Array.from(e.results)
     .map(result => result[0])
     .map(result => result.transcript)
@@ -39,10 +42,11 @@
         p = document.createElement('p');
         words.appendChild(p);
       }
-      if(transcript.includes('unicorn')){
+      if(transcript.includes('Unicorn')){
         // Trigger the ugly unicorn thing
         // Re-cap debouncing!
         // Handsoff thing
+        cornify_add();
       }
     console.log(transcript);
   })
