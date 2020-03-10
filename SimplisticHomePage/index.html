@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simplistic Page</title>
+</head>
+<body>
+<div class="sidenav">
+    <a href="about.html">About</a>
+    <a href="">Poetic Computation</a>
+    <a href="">Inspiration</a>
+    <a href="">Colors</a>
+</div>
+<div class="container">
+    <img src="http://unsplash.it/400/400" class="image"/>
+
+</div>
+<script>
+    console.log('HOMEPAGE');
+</script>
+<style>
+    .sidenav {
+        background: #eee;
+        width: 200px;
+        position: fixed;
+        z-index: 1;
+        left: 10px;
+        top: 20;
+        overflow-x: hidden;
+        padding: 8px 0;
+    }
+
+    .sidenav a {
+        text-decoration: none;
+        display: block;
+        font-size: 16px;
+        padding: 6px 8px 6px 16px;
+    }
+
+    .container {
+        position: relative;
+        width: 50%;
+    }
+
+    .image {
+        opacity: 1;
+        display: block;
+        /* width: 100%; */
+        height: auto;
+        transition: .5s ease;
+        backface-visibility: hidden;
+        margin-left: 140px;
+        -webkit-filter: grayscale(100%);
+    }
+
+    .container:hover .image {
+        opacity: 0.3;
+    }
+
+</style>
+
+</body>
+</html>
