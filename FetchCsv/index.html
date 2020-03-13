@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch and Graph CSV</title>
+    <!-- Chart js  -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+</head>
+<body>
+    <div style="width:75%;"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+        <canvas id="myChart" width="400" height="400"></canvas>
+    </div>
+	<script>
+
+        window.addEventListener('load', setupLineChart);
+
+        async function setupLineChart() {
+            var ctx = document.getElementById('myChart').getContext('2d');
+            const globalTemps = await getData();
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: globalTemps.years,
+                    datasets: [{
+                        label: 'Temperature in °C',
+                        data: globalTemps.temps,
+                        fill: false,
+                        backgroundColor: [
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+
+                }
+            });
+        }
+
+    async function getData(){
+        // Fetch the csv data
+        const response = await fetch('ZonAnn.Ts+dSST.csv');
+        const data = await response.text();
+        const years = [];
+        const temps = [];
+        // Remove the header and split by linebreak
+        const rows = data.split('\n').slice(1);
+        rows.forEach(row => {
+          const cols = row.split(',');
+          years.push(cols[0]);
+          temps.push(14 + parseFloat(cols[1]));
+        });
+        return { years, temps };
+    }
+</script>
+</body>
+</html>
