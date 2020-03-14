@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>👀👀👀Follow Along Nav</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+      <ul class="menu">
+        <li><a href="">Home</a></li>
+        <li><a href="">Read More</a></li>
+        <li><a href="">Books</a></li>
+        <li><a href="">Read Our History</a></li>
+        <li><a href="">Contact Us</a></li>
+      </ul>
+    </nav>
+
+    <div class="wrapper">
+      <p>A wonderful serenity has taken <a href="">possession</a> of my entire <a href="">soul</a>, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of </p>
+      <p>existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, </p>
+      <p>that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now. When, while </p>
+      <p>the <a href="">lovely valley</a> teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees, and but a few stray gleams steal </p>
+      <p>into the inner sanctuary, I throw myself down among the tall grass by the trickling stream; and, as I lie close to the earth, a thousand unknown plants are noticed by me: </p>
+      <p>when I hear the buzz of the little world among the <a href="">stalks</a>, and grow familiar with the countless indescribable forms of the insects and flies, then I feel the presence of </p>
+      <p>the Almighty, who formed us in his own image, and the breath </p>
+    </div>
+
+  <script>
+    // 👀👀👀👀👀👀👀👀👀👀👀👀👀👀👀
+    // Get all triggers (all links)
+    const triggers = document.querySelectorAll('a');
+    // css trasitions on the links already
+    const highlight = document.createElement('span');
+    highlight.classList.add('highlight');
+    document.body.append(highlight);
+
+    function highlightLink() {
+      const linkCoords = this.getBoundingClientRect();
+      // console.log(linkCoords);
+      const coords = {
+        width: linkCoords.width,
+        height: linkCoords.height,
+        top: linkCoords.top + window.scrollY,
+        left: linkCoords.left + window.scrollX
+      };
+      highlight.style.width = `${coords.width}px`;
+      highlight.style.height = `${coords.height}px`;
+      highlight.style.transform = `translate(${coords.left}px, ${coords.top}px)`;
+
+    }
+
+    // Add an event listener to each anchor tag
+    triggers.forEach(a => a.addEventListener('mouseenter', highlightLink));
+  </script>
+</body>
+</html>
+
