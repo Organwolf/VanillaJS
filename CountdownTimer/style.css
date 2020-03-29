@@ -69,14 +69,28 @@ body {
 }
 
 .display {
-  flex: 1;
+  flex: 1 1 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex;
   justify-content: center;
 }
 
 .display__end-time {
   font-size: 4rem;
   color: white;
+}
+
+.control_timer__button{
+  visibility: hidden;
+  font-size: 4em;
+  color: white;
+  background-color: #d6a170;
+  text-shadow: 4px 4px 0 rgba(0,0,0,0.05);
+}
+
+.control_timer__button:hover,
+.control_timer__button:focus {
+  background: rgba(0,0,0,0.2);
+  outline: 0;
 }
